@@ -1,18 +1,30 @@
-#0x19-postmortem task using webtack debugging #1
+**#0x19-postmortem task using webtack debugging #1**
 
-Issue Summary
+
+
+>**Issue Summary**
 
 Duration of the outage: The outage started at 13:00PM and was resolved around 14:50PM Central African Time
 
-Impact:
+
+
+
+>**Impact:**
+
 Firewalls on the host machine were blocking incoming connections on port 80
 
-Root Cause:
+
+
+
+>**Root Cause:**
+>
 Incorrectly configured firewall settings inadvertently restricted access to port 80, preventing web traffic from reaching the server
 
 
 
-Timeline:
+
+>**Timeline:**
+>
 13:00 PM: The issue was detected by the ALX(Platform) attempted to access the website and found it unresponsive
 
 13:10 PM: ALX monitoring alerts indicated that the site was down, and the team.
@@ -27,17 +39,44 @@ Timeline:
 
 
 
-Root Cause and Resolution
 
-Root Cause:
+>**Root Cause and Resolution**
+
+>**Root Cause:**
+>
 Misconfigured port forwarding rules, such as incorrect internal IP addresses or protocols resulted in port 80 not being properly mapped to the intended device.
 
-Resolution:
+>**Resolution:**
+>
 The port forwarding rule to point to the correct internal IP address was updated.The team made sure that the incoming traffic on port 80 is allowed.
 
 
 
-Correcteive and Preventive Measures
 
-Improvements:
+>**Correcteive and Preventive Measures**
+
+>**Improvements:**
+>
 Maintaining a record of the network settings, including port forwarding rules and firewall configurations, for easier troubleshooting in the future. Use network monitoring tools to detect unauthorized access attempts or issues with port usage earlier.
+
+
+
+
+>**Task List:**
+
+Create and execute script link sites available configuration to sites-enabled after each configuration change. Add a monitoring check to ensure that Nginx is correctly listening on port 80.
+
+
+
+>**Example Script**
+
+Here is the script I menrioned to ensure the configuration is always active:
+[bash](Copy code) #!/usr/bin/env bash
+
+
+>**Ensure Nginx is properly configured and listening on port 80**
+
+cat/etc/nginx/sites-available/default>/etc/nginx/sites-enabled/default sudo service nginx restart
+
+
+>**This ensures that the correct configuration is enabled and restarts Nginx to apply changes**  
