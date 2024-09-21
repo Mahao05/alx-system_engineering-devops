@@ -79,4 +79,15 @@ Here is the script I menrioned to ensure the configuration is always active:
 cat/etc/nginx/sites-available/default>/etc/nginx/sites-enabled/default sudo service nginx restart
 
 
->**This ensures that the correct configuration is enabled and restarts Nginx to apply changes**  
+
+>**This ensures that the correct configuration is enabled and restarts Nginx to apply changes**
+>
+
+**Flow diagram**
+![Screenshot_20240921_162442_Perplexity](https://github.com/user-attachments/assets/8be85c4b-f509-4459-b2b3-6ad8624172ae)
+
+
+**Postmortem**
+![images (7)](https://github.com/user-attachments/assets/dc993a80-8e8f-42f5-a419-371457f575a2)
+
+
